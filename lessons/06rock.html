@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rockPaper</title>
+  </head>
+  <body>
+    <h2>Rock Paper Scissors</h2>
+    <button onclick="startGame('rock')">Rock</button>
+    <button onclick="startGame('paper')">Paper</button>
+    <button onclick="startGame('scissor')">Scissors</button>
+
+    <script>
+      function startGame(userMove) {
+        const randomNumber = Math.random();
+        let computerMove = "";
+        let result = "";
+
+        if (randomNumber >= 0 && randomNumber <= 0.3) {
+          computerMove = "rock";
+        } else if (randomNumber > 0.3 && randomNumber <= 0.6) {
+          computerMove = "paper";
+        } else if (randomNumber > 0.6 && randomNumber <= 1) {
+          computerMove = "scissor";
+        }
+
+        if (userMove === "rock") {
+          if (computerMove === "rock") {
+            result = "tie";
+          } else if (computerMove === "paper") {
+            result = "you lose";
+          } else if (computerMove === "scissor") {
+            result = "you win!!!";
+          }
+        }
+
+        if (userMove === "paper") {
+          if (computerMove === "paper") {
+            result = "tie";
+          } else if (computerMove === "scissor") {
+            result = "you lose";
+          } else if (computerMove === "rock") {
+            result = "you win!!!";
+          }
+        }
+
+        if (userMove === "scissor") {
+          if (computerMove === "scissor") {
+            result = "tie";
+          } else if (computerMove === "rock") {
+            result = "you lose";
+          } else if (computerMove === "paper") {
+            result = "you win!!!";
+          }
+        }
+        alert(`
+        User move: ${userMove}
+        Computer move: ${computerMove}
+        result: ${result}`);
+      }
+    </script>
+  </body>
+</html>
