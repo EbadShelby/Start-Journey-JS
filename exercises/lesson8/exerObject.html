@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exerciseObject</title>
+  </head>
+  <body>
+    <button onclick="flipCoin('heads')">heads</button>
+    <button onclick="flipCoin('tails')">tails</button>
+    <button onclick="removeScore()">reset scores</button>
+
+    <script>
+      let scores = JSON.parse(localStorage.getItem("scores")) || {
+        wins: 0,
+        losses: 0,
+      };
+      function flipCoin(guess) {
+        let result = "";
+        let randomNumber = Math.random();
+
+        if (randomNumber < 0.5) {
+          result = "heads";
+        } else {
+          result = "tails";
+        }
+
+        if (guess === result) {
+          alert(`
+          guess: ${guess}
+          result: ${result}
+          you win!!!`);
+          scores.wins++;
+        } else {
+          alert(`
+          guess: ${guess}
+          result: ${result}
+          you lose!!!`);
+          scores.losses++;
+        }
+
+        localStorage.setItem("scores", JSON.stringify(scores));
+        console.log(scores);
+      }
+      function removeScore() {
+        scores.wins = 0;
+        scores.losses = 0;
+        localStorage.removeItem("scores");
+        console.log(scores);
+      }
+
+      let product1 = {
+        name: "basketball",
+        price: 2095,
+      };
+      let product2 = {
+        name: "football",
+        price: 2100,
+      };
+      console.log(product1);
+      console.log(product1.price);
+      product1.deliveryTime = "3 days";
+      console.log(product1);
+
+      let lowestPrice = comparePrice(product1, product2);
+      console.log(lowestPrice);
+      console.log(isSameProducts(product1, product2));
+
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          return product1.price;
+        } else {
+          return product2.price;
+        }
+      }
+      function isSameProducts() {
+        if (product1.name === product2.name) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
