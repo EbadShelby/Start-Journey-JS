@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculatorDom</title>
+  </head>
+  <body>
+    <p class="js-output"></p>
+    <button onclick="input(1)">1</button>
+    <button onclick="input(2)">2</button>
+    <button onclick="input(3)">3</button>
+    <button onclick="add()">+</button>
+
+    <!-- ------------------------------------------------------------------- -->
+
+    <script>
+      let output = 0;
+
+      function input(number) {
+        output += number;
+        document.querySelector(".js-output").innerHTML = output;
+      }
+      function add() {
+        document.querySelector(".js-output").innerHTML = `${output} + `;
+      }
+    </script>
+  </body>
+</html>

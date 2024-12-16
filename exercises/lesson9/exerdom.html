@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exerciseDom</title>
+  </head>
+  <body>
+    <button>9a</button>
+    <button class="js-9b">9b</button>
+    <br /><br />
+    <button class="js-heads" onclick="flipCoin('heads')">heads</button>
+    <button class="js-tails" onclick="flipCoin('tails')">tails</button>
+    <p class="js-chose"></p>
+    <br />
+    <input type="text" name="name" class="js-input-name" onkeydown="enter()" />
+    <button class="js-submit" onclick="submit()">Submit</button>
+    <p class="js-greet"></p>
+
+    <!-- ------------------------------------------------------------------- -->
+
+    <script>
+      console.log(document.querySelector("button"));
+      document.querySelector(".js-9b").innerHTML = "9b done!";
+
+      function flipCoin(choose) {
+        if (choose === "heads") {
+          document.querySelector(".js-chose").innerHTML = "You chose: heads";
+        } else {
+          document.querySelector(".js-chose").innerHTML = "You chose: tails";
+        }
+      }
+
+      function submit() {
+        const inputName = document.querySelector(".js-input-name");
+        document.querySelector(
+          ".js-greet"
+        ).innerHTML = `Hello ${inputName.value}`;
+      }
+
+      function enter() {
+        if (event.key === "Enter") {
+          submit();
+        }
+      }
+    </script>
+  </body>
+</html>
