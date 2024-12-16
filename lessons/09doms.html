@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      input {
+        background-color: darkblue;
+        border: none;
+        border-radius: 0.25em;
+        padding: 0.5em 1em;
+        color: whitesmoke;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      input::placeholder {
+        color: lightgray;
+      }
+      button {
+        background-color: gray;
+        border-radius: 0.25em;
+        padding: 0.5em 1em;
+        border: none;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Amazon Shipping Calculator</h3>
+    <p>Orders under $40 = +10 shipping.</p>
+    <p>Orders above $40 = FREE shipping.</p>
+    <input
+      type="text"
+      placeholder="Cost of Order"
+      name="calc"
+      class="js-input"
+      onkeydown="calcOnKeyDown()"
+    />
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="js-result"></p>
+
+    <!-- ------------------------------------------------------------------- -->
+
+    <script>
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-input");
+
+        const cost = Number(inputElement.value);
+
+        if (cost < 40) {
+          document.querySelector(
+            ".js-result"
+          ).innerHTML = `+10 Shipping total: ${cost + 10}`;
+        } else {
+          document.querySelector(
+            ".js-result"
+          ).innerHTML = `Free Shipping!!! total ${cost}`;
+        }
+      }
+
+      function calcOnKeyDown() {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+    </script>
+  </body>
+</html>
