@@ -1,7 +1,7 @@
 const inputElement = document.querySelector(".js-first-list");
 const dateInputElement = document.querySelector(".js-date");
 
-const listItems = [{ name: "eat", dueDate: "2024-15-11" }];
+const listItems = JSON.parse(localStorage.getItem("list")) || [];
 renderList();
 
 function renderList() {
@@ -20,9 +20,7 @@ function renderList() {
         ${dueDate}
       </p>
       <button class="red-button" onclick="
-        listItems.splice(${i}, 1);
-        renderList();
-        
+        deleteItem(${i});
         ">Delete
       </button>
     `;
@@ -38,8 +36,16 @@ function addItem() {
     name: item,
     dueDate,
   });
+  localStorage.setItem("list", JSON.stringify(listItems));
   inputElement.value = "";
   dateInputElement.value = "";
 
+  renderList();
+}
+
+function deleteItem(index) {
+  listItems.splice(index, 1);
+
+  localStorage.setItem("list", JSON.stringify(listItems));
   renderList();
 }
