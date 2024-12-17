@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>advance function</title>
+  </head>
+  <body>
+    <script>
+      setTimeout(function () {
+        console.log("timeout");
+      }, 1000);
+      let foods = ["apple", "grapes", "banana"];
+
+      foods.forEach(function (value, index) {
+        if (value === "grapes") {
+          return;
+        }
+        console.log(value, index);
+      });
+    </script>
+  </body>
+</html>
