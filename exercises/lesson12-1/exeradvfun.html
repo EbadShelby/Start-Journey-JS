@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercise advFun</title>
+  </head>
+  <body>
+    <button onclick="add()">add</button>
+    <button class="js-start" onclick="start()">start</button><br />
+    <button onclick="addCart()">Add to cart</button>
+    <p class="js-add-cart"></p>
+
+    <script>
+      console.log("functions inside function:");
+      let add = function () {
+        console.log(2 + 3);
+      };
+
+      function runTwice(param) {
+        console.log(2 + 3);
+      }
+
+      runTwice(add());
+
+      function start() {
+        document.querySelector(".js-start").innerHTML = "Loading...";
+        setTimeout(function () {
+          document.querySelector(".js-start").innerHTML = "Finished";
+        }, 1000);
+      }
+
+      function addCart() {
+        let cartPopUp = document.querySelector(".js-add-cart");
+
+        cartPopUp.innerHTML = "Added";
+
+        setTimeout(function () {
+          cartPopUp.innerHTML = "";
+        }, 2000);
+      }
+
+      let message = 1;
+      setInterval(function () {
+        document.title = `(${message}) New messages`;
+        message++;
+      }, 1000);
+    </script>
+  </body>
+</html>
