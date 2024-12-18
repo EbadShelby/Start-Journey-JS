@@ -6,7 +6,7 @@ renderList();
 
 function renderList() {
   let listItemHTML = "";
-  listItems.forEach(function (itemObject, index) {
+  listItems.forEach((itemObject, index) => {
     const { name, dueDate } = itemObject;
 
     const html = `

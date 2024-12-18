@@ -104,7 +104,7 @@ let intervalId;
 
 function autoPlay() {
   if (!isAutoPlaying) {
-    intervalId = setInterval(function () {
+    intervalId = setInterval(() => {
       const userMove = randomUserMove();
       startGame(userMove);
     }, 1000);
