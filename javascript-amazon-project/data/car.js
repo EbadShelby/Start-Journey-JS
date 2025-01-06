@@ -13,4 +13,4 @@ const car1 = new Car({
   model: "Corolla",
 });
 
-console.log(car1);
+console.log(car1.brand);
