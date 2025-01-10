@@ -73,6 +73,18 @@ class Appliance extends Product {
   }
 }
 
+function loadProductsFetch() {
+  fetch("https://supersimplebackend.dev/products")
+    .then((response) => {
+      return response.json();
+    })
+    .then((productsData) => {
+      console.log(productsData);
+    });
+}
+
+loadProductsFetch();
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
