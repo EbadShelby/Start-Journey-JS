@@ -1,10 +1,7 @@
 import { cart, calculateCartQuantity } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
-import {
-  deliveryOptions,
-  getDeliveryOption,
-} from "../../data/deliveryOptions.js";
+import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { addOrder } from "../../data/orders.js";
 
 export function renderPaymentSummary() {
@@ -87,4 +84,3 @@ export function renderPaymentSummary() {
       window.location.href = "orders.html";
     });
 }
-
